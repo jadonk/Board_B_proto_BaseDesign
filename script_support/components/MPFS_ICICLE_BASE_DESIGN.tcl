@@ -88,21 +88,19 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {RPi_GPIO12} -port_directio
 sd_create_scalar_port -sd_name ${sd_name} -port_name {RPi_GPIO16} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {RPi_GPIO20} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {RPi_GPIO21} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_CLK_EMMC_CLK} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_CMD_EMMC_CMD} -port_direction {INOUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_DATA0_EMMC_DATA0} -port_direction {INOUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_DATA1_EMMC_DATA1} -port_direction {INOUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_DATA2_EMMC_DATA2} -port_direction {INOUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_DATA3_EMMC_DATA3} -port_direction {INOUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_POW_EMMC_DATA4} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_VOLT_SEL_EMMC_DATA5} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_VOLT_EN_EMMC_DATA6} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_VOLT_CMD_DIR_EMMC_DATA7} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_VOLT_DIR_1_3_EMMC_UNUSED} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_VOLT_DIR_0_EMMC_UNUSED} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_CD_EMMC_STRB} -port_direction {IN}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_WP_EMMC_RSTN} -port_direction {IN}
 
+sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_CLK} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_CMD} -port_direction {INOUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_DATA0} -port_direction {INOUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_DATA1} -port_direction {INOUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_DATA2} -port_direction {INOUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_DATA3} -port_direction {INOUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_VOLT_CMD_DIR} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_VOLT_DIR_1_3} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_VOLT_DIR_0} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_VOLT_EN} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_VOLT_SEL} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_CD} -port_direction {IN}
 
 sd_create_bus_port -sd_name ${sd_name} -port_name {CA} -port_direction {OUT} -port_range {[5:0]} -port_is_pad {1}
 sd_create_bus_port -sd_name ${sd_name} -port_name {DQ} -port_direction {INOUT} -port_range {[31:0]} -port_is_pad {1}
@@ -520,20 +518,19 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:USB_DIR" "USB_DIR" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:USB_NXT" "USB_NXT" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:USB_STP" "USB_STP" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE_INITIATOR:ARESETN" "PHY_RSTn" "USB_ULPI_RESET"  "READ_ADDR_OFFSET:A" "DMA_INITIATOR:ARESETN" "PCIE_LSRAM:ARESETN" "MSS_LSRAM:ARESETN" "WRITE_ADDR_OFFSET:A" "FIC0_INITIATOR:ARESETN" "DMA_CONTROLLER:RESETN" "PCIE:AXI_CLK_STABLE" "CLOCKS_AND_RESETS:RESETN_CLK_125MHz" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_CLK_EMMC_CLK" "ICICLE_MSS:SD_CLK_EMMC_CLK" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_CMD_EMMC_CMD" "ICICLE_MSS:SD_CMD_EMMC_CMD" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_DATA0_EMMC_DATA0" "ICICLE_MSS:SD_DATA0_EMMC_DATA0" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_DATA1_EMMC_DATA1" "ICICLE_MSS:SD_DATA1_EMMC_DATA1" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_DATA2_EMMC_DATA2" "ICICLE_MSS:SD_DATA2_EMMC_DATA2" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_DATA3_EMMC_DATA3" "ICICLE_MSS:SD_DATA3_EMMC_DATA3" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_POW_EMMC_DATA4" "ICICLE_MSS:SD_POW_EMMC_DATA4" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_VOLT_SEL_EMMC_DATA5" "ICICLE_MSS:SD_VOLT_SEL_EMMC_DATA5" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_VOLT_EN_EMMC_DATA6" "ICICLE_MSS:SD_VOLT_EN_EMMC_DATA6" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_VOLT_CMD_DIR_EMMC_DATA7" "ICICLE_MSS:SD_VOLT_CMD_DIR_EMMC_DATA7" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_VOLT_DIR_1_3_EMMC_UNUSED" "ICICLE_MSS:SD_VOLT_DIR_1_3_EMMC_UNUSED" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_VOLT_DIR_0_EMMC_UNUSED" "ICICLE_MSS:SD_VOLT_DIR_0_EMMC_UNUSED" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_CD_EMMC_STRB" "ICICLE_MSS:SD_CD_EMMC_STRB" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_WP_EMMC_RSTN" "ICICLE_MSS:SD_WP_EMMC_RSTN" }
+
+sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_CLK" "ICICLE_MSS:SD_CLK" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_CMD" "ICICLE_MSS:SD_CMD" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_DATA0" "ICICLE_MSS:SD_DATA0" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_DATA1" "ICICLE_MSS:SD_DATA1" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_DATA2" "ICICLE_MSS:SD_DATA2" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_DATA3" "ICICLE_MSS:SD_DATA3" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_VOLT_DIR_1_3" "ICICLE_MSS:SD_VOLT_DIR_1_3" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_VOLT_DIR_0" "ICICLE_MSS:SD_VOLT_DIR_0" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_CD" "ICICLE_MSS:SD_CD" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_VOLT_EN" "ICICLE_MSS:SD_VOLT_EN" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_VOLT_SEL" "ICICLE_MSS:SD_VOLT_SEL" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_VOLT_CMD_DIR" "ICICLE_MSS:SD_VOLT_CMD_DIR" }
 
 # Add bus net connections
 sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:CA" "CA" }
