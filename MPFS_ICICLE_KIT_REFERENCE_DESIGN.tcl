@@ -141,9 +141,6 @@ import_files \
 	-io_pdc "${constraint_path}/ICICLE_CAN0.pdc" \
 	-io_pdc "${constraint_path}/ICICLE_MAC.pdc" \
 	-io_pdc "${constraint_path}/ICICLE_MIKROBUS.pdc" \
-	-io_pdc "${constraint_path}/ICICLE_MMUART0.pdc" \
-	-io_pdc "${constraint_path}/ICICLE_MMUART1.pdc" \
-	-io_pdc "${constraint_path}/ICICLE_MMUART2.pdc" \
 	-io_pdc "${constraint_path}/ICICLE_PCIE.pdc" \
 	-io_pdc "${constraint_path}/ICICLE_USB.pdc" \
 	-io_pdc "${constraint_path}/ICICLE_SDIO.pdc" \
@@ -170,9 +167,6 @@ organize_tool_files \
 	-file "${project_dir}/constraint/io/ICICLE.pdc" \
 	-file "${project_dir}/constraint/io/ICICLE_MAC.pdc" \
 	-file "${project_dir}/constraint/io/ICICLE_PCIE.pdc" \
-	-file "${project_dir}/constraint/io/ICICLE_MMUART0.pdc" \
-	-file "${project_dir}/constraint/io/ICICLE_MMUART1.pdc" \
-	-file "${project_dir}/constraint/io/ICICLE_MMUART2.pdc" \
 	-file "${project_dir}/constraint/io/ICICLE_RPi.pdc" \
 	-file "${project_dir}/constraint/fp/CCC.pdc" \
 	-module {MPFS_ICICLE_KIT_BASE_DESIGN::work} \
