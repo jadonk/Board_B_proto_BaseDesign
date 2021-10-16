@@ -138,7 +138,6 @@ source ./script_support/MPFS_ICICLE_recursive.tcl
 import_files \
 	-convert_EDN_to_HDL 0 \
 	-io_pdc "${constraint_path}/ICICLE.pdc" \
-	-io_pdc "${constraint_path}/ICICLE_CAN0.pdc" \
 	-io_pdc "${constraint_path}/ETHERNET_MAC.pdc" \
 	-io_pdc "${constraint_path}/ICICLE_MIKROBUS.pdc" \
 	-io_pdc "${constraint_path}/ICICLE_PCIE.pdc" \
@@ -160,7 +159,6 @@ import_files -convert_EDN_to_HDL 0 -fp_pdc "${constraint_path}/CCC.pdc"
 
 organize_tool_files \
 	-tool {PLACEROUTE} \
-	-file "${project_dir}/constraint/io/ICICLE_CAN0.pdc" \
 	-file "${project_dir}/constraint/io/ICICLE_MIKROBUS.pdc" \
 	-file "${project_dir}/constraint/io/ICICLE_SDIO.pdc" \
 	-file "${project_dir}/constraint/io/ICICLE_USB.pdc" \
