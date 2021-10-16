@@ -31,10 +31,7 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {CKE} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {CS} -port_direction {OUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {CK} -port_direction {OUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {CK_N} -port_direction {OUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {LED0} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {LED1} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {LED2} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {LED3} -port_direction {OUT}
+
 sd_create_scalar_port -sd_name ${sd_name} -port_name {SW1} -port_direction {IN}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {SW2} -port_direction {IN}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {SW3} -port_direction {IN}
@@ -107,6 +104,19 @@ sd_create_bus_port -sd_name ${sd_name} -port_name {DQ} -port_direction {INOUT} -
 sd_create_bus_port -sd_name ${sd_name} -port_name {DQS} -port_direction {INOUT} -port_range {[3:0]} -port_is_pad {1}
 sd_create_bus_port -sd_name ${sd_name} -port_name {DQS_N} -port_direction {INOUT} -port_range {[3:0]} -port_is_pad {1}
 sd_create_bus_port -sd_name ${sd_name} -port_name {DM} -port_direction {OUT} -port_range {[3:0]} -port_is_pad {1}
+
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN3} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN4} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN5} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN6} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN7} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN8} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN9} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN10} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN11} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN12} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN13} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN14} -port_direction {OUT}
 
 sd_invert_pins -sd_name ${sd_name} -pin_names {USB_ULPI_RESET}
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {SDIO_SW_EN_N} -value {GND}
@@ -411,15 +421,25 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"I2C0_SDA_BIBUF:PAD" "I2C0_SDA" 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:I2C_0_SDA_F2M" "I2C0_SDA_BIBUF:Y" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:I2C_1_SCL" "I2C_1_SCL" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:I2C_1_SDA" "I2C_1_SDA" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:GPIO_2_M2F_16" "LED0" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:GPIO_2_M2F_17" "LED1" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:GPIO_2_M2F_18" "LED2" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:GPIO_2_M2F_19" "LED3" }
+
+sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:GPIO_2_M2F_16" "P8_PIN3" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:GPIO_2_M2F_17" "P8_PIN4" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:GPIO_2_M2F_18" "P8_PIN5" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:GPIO_2_M2F_19" "P8_PIN6" }
+
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P8_PIN7} -value {GND}
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P8_PIN8} -value {GND}
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P8_PIN9} -value {GND}
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P8_PIN10} -value {GND}
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P8_PIN11} -value {GND}
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P8_PIN12} -value {GND}
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P8_PIN13} -value {GND}
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P8_PIN14} -value {GND}
+
 sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:MMUART_0_RXD" "MMUART_0_RXD_F2M" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:MMUART_0_TXD" "MMUART_0_TXD_M2F" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:MMUART_1_TXD_M2F" "ICICLE_MSS:MMUART_1_RXD_F2M" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:MMUART_2_TXD_M2F" "ICICLE_MSS:MMUART_2_RXD_F2M" }
-
 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"MSS_PLL_LOCKS:A" "ICICLE_MSS:FIC_0_DLL_LOCK_M2F" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"MSS_PLL_LOCKS:D" "ICICLE_MSS:FIC_1_DLL_LOCK_M2F" }
