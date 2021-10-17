@@ -59,10 +59,7 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {QSPI_DATA2} -port_directio
 sd_create_scalar_port -sd_name ${sd_name} -port_name {QSPI_DATA3_OR_PWM} -port_direction {INOUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {I2C0_SCL} -port_direction {INOUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {I2C0_SDA} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {SPI_0_CLK_M2F} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {SPI_0_DO_M2F} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {SPI_0_SS1_M2F} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {SPI_0_DI_F2M} -port_direction {IN}
+
 sd_create_scalar_port -sd_name ${sd_name} -port_name {PCIESS_LANE_RXD1_P} -port_direction {IN} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {PCIESS_LANE_RXD1_N} -port_direction {IN} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {PCIESS_LANE_RXD2_P} -port_direction {IN} -port_is_pad {1}
@@ -107,6 +104,14 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN11} -port_direction 
 sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN12} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN13} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN14} -port_direction {OUT}
+
+#sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN15} -port_direction {IN}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN16} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN17} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN18} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN19} -port_direction {IN}
+
+
 
 sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN38} -port_direction {OUT}
 
@@ -528,10 +533,12 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_RX0_N" "ICICLE_MSS:SGMII_
 sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_RX0_P" "ICICLE_MSS:SGMII_RX0_P" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_TX0_N" "ICICLE_MSS:SGMII_TX0_N" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_TX0_P" "ICICLE_MSS:SGMII_TX0_P" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:SPI_0_CLK_M2F" "SPI_0_CLK_M2F" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:SPI_0_DI_F2M" "SPI_0_DI_F2M" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:SPI_0_DO_M2F" "SPI_0_DO_M2F" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:SPI_0_SS1_M2F" "SPI_0_SS1_M2F" }
+
+sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:SPI_0_CLK_M2F" "P8_PIN16" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:SPI_0_DI_F2M" "P8_PIN19" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:SPI_0_DO_M2F" "P8_PIN17" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:SPI_0_SS1_M2F" "P8_PIN18" }
+
 sd_connect_pins -sd_name ${sd_name} -pin_names {"SW1_OR_GPIO_2_28:A" "SW1" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:MSS_INT_F2M[0]" "SW1_OR_GPIO_2_28:Y" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"SW2_OR_GPIO_2_26:A" "SW2" }
