@@ -32,6 +32,9 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {CS} -port_direction {OUT} 
 sd_create_scalar_port -sd_name ${sd_name} -port_name {CK} -port_direction {OUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {CK_N} -port_direction {OUT} -port_is_pad {1}
 
+sd_create_scalar_port -sd_name ${sd_name} -port_name {PHY_MDC} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {PHY_MDIO} -port_direction {INOUT}
+
 #sd_create_scalar_port -sd_name ${sd_name} -port_name {SW1} -port_direction {IN}
 #sd_create_scalar_port -sd_name ${sd_name} -port_name {SW2} -port_direction {IN}
 #sd_create_scalar_port -sd_name ${sd_name} -port_name {SW3} -port_direction {IN}
@@ -530,6 +533,8 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"P8_PIN44" "COREGPIO_C0:GPIO_OUT
 sd_connect_pins -sd_name ${sd_name} -pin_names {"P8_PIN45" "COREGPIO_C0:GPIO_OUT[2]" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"P8_PIN46" "COREGPIO_C0:GPIO_OUT[3]" }
 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PHY_MDC" "ICICLE_MSS:MAC_0_MDC" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PHY_MDIO" "ICICLE_MSS:MAC_0_MDIO" }
 
 
 #sd_connect_pins -sd_name ${sd_name} -pin_names {"SDIO_SW_SEL0" "SDIO_SW_SEL1" "sdio_register_0:SDIO_control" }
