@@ -22,6 +22,16 @@ set_io -port_name P8_PIN17 -pin_name A10 -fixed true -DIRECTION OUTPUT -io_std L
 set_io -port_name P8_PIN18 -pin_name D11 -fixed true -DIRECTION OUTPUT -io_std LVCMOS33
 set_io -port_name P8_PIN19 -pin_name C11 -fixed true -DIRECTION INTPUT -io_std LVCMOS33 
 
+set_io -port_name P8_PIN20 -pin_name F11 -fixed true -DIRECTION INPUT -io_std LVCMOS33 
+#set_io -port_name P8_PIN21 -pin_name F12 -fixed true -DIRECTION INPUT -io_std LVCMOS33 
+#set_io -port_name P8_PIN22 -pin_name E11 -fixed true -DIRECTION INPUT -io_std LVCMOS33
+set_io -port_name P8_PIN23 -pin_name D12 -fixed true -DIRECTION INPUT -io_std LVCMOS33 
+set_io -port_name P8_PIN24 -pin_name C12 -fixed true -DIRECTION INPUT -io_std LVCMOS33 
+set_io -port_name P8_PIN25 -pin_name B12 -fixed true -DIRECTION INPUT -io_std LVCMOS33 
+
+
+
+
 
 set_io -port_name P8_PIN38 -pin_name C17 -fixed true -DIRECTION OUTPUT -io_std LVCMOS33 
 

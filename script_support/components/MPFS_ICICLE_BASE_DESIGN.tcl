@@ -32,10 +32,10 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {CS} -port_direction {OUT} 
 sd_create_scalar_port -sd_name ${sd_name} -port_name {CK} -port_direction {OUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {CK_N} -port_direction {OUT} -port_is_pad {1}
 
-sd_create_scalar_port -sd_name ${sd_name} -port_name {SW1} -port_direction {IN}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {SW2} -port_direction {IN}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {SW3} -port_direction {IN}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {SW4} -port_direction {IN}
+#sd_create_scalar_port -sd_name ${sd_name} -port_name {SW1} -port_direction {IN}
+#sd_create_scalar_port -sd_name ${sd_name} -port_name {SW2} -port_direction {IN}
+#sd_create_scalar_port -sd_name ${sd_name} -port_name {SW3} -port_direction {IN}
+#sd_create_scalar_port -sd_name ${sd_name} -port_name {SW4} -port_direction {IN}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {USB_ULPI_RESET} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {SGMII_RX0_P} -port_direction {IN} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {SGMII_RX0_N} -port_direction {IN} -port_is_pad {1}
@@ -110,6 +110,13 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN16} -port_direction 
 sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN17} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN18} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN19} -port_direction {IN}
+
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN20} -port_direction {IN}
+#sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN21} -port_direction {IN}
+#sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN22} -port_direction {IN}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN23} -port_direction {IN}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN24} -port_direction {IN}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN25} -port_direction {IN}
 
 
 
@@ -539,13 +546,26 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:SPI_0_DI_F2M" "P8_PI
 sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:SPI_0_DO_M2F" "P8_PIN17" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:SPI_0_SS1_M2F" "P8_PIN18" }
 
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SW1_OR_GPIO_2_28:A" "SW1" }
+#sd_connect_pins -sd_name ${sd_name} -pin_names {"SW1_OR_GPIO_2_28:A" "SW1" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"SW1_OR_GPIO_2_28:A" "P8_PIN20" }
+
+
 sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:MSS_INT_F2M[0]" "SW1_OR_GPIO_2_28:Y" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SW2_OR_GPIO_2_26:A" "SW2" }
+#sd_connect_pins -sd_name ${sd_name} -pin_names {"SW2_OR_GPIO_2_26:A" "SW2" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"SW2_OR_GPIO_2_26:A" "P8_PIN24" }
+
+
 sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:GPIO_2_F2M_30" "SW2_OR_GPIO_2_26:Y" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SW3_OR_GPIO_2_27:A" "SW3" }
+#sd_connect_pins -sd_name ${sd_name} -pin_names {"SW3_OR_GPIO_2_27:A" "SW3" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"SW3_OR_GPIO_2_27:A" "P8_PIN25" }
+
+
 sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:GPIO_2_F2M_31" "SW3_OR_GPIO_2_27:Y" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SW4" "ICICLE_MSS:MSS_RESET_N_F2M" }
+#sd_connect_pins -sd_name ${sd_name} -pin_names {"SW4" "ICICLE_MSS:MSS_RESET_N_F2M" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"P8_PIN23" "ICICLE_MSS:MSS_RESET_N_F2M" }
+
+
+
 sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:USB_CLK" "USB_CLK" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:USB_DATA0" "USB_DATA0" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:USB_DATA1" "USB_DATA1" }
