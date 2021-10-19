@@ -54,12 +54,6 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {PCIESS_LANE_TXD0_P} -port_
 sd_create_scalar_port -sd_name ${sd_name} -port_name {PCIESS_LANE_TXD0_N} -port_direction {OUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {PCIE_1_PERST_N} -port_direction {IN}
 
-sd_create_scalar_port -sd_name ${sd_name} -port_name {QSPI_CS} -port_direction {OUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {QSPI_CLK} -port_direction {OUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {QSPI_DATA0} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {QSPI_DATA1} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {QSPI_DATA2} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {QSPI_DATA3_OR_PWM} -port_direction {INOUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {I2C0_SCL} -port_direction {INOUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {I2C0_SDA} -port_direction {INOUT} -port_is_pad {1}
 
@@ -352,23 +346,6 @@ sd_mark_pins_unused -sd_name ${sd_name} -pin_names {PCIE:PCIE_1_DLUP_EXIT}
 
 
 
-# Add QSPI_DATA2_BIBUF instance
-sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {QSPI_DATA2_BIBUF}
-
-
-
-# Add QSPI_DATA3_OR_PWM_BIBUF instance
-sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {QSPI_DATA3_OR_PWM_BIBUF}
-
-
-# Add QSPI_DATA3_OR_PWM_EN_OR instance
-sd_instantiate_macro -sd_name ${sd_name} -macro_name {OR2} -instance_name {QSPI_DATA3_OR_PWM_EN_OR}
-
-# Add QSPI_DATA3_OR_PWM_D_OR instance
-sd_instantiate_macro -sd_name ${sd_name} -macro_name {OR2} -instance_name {QSPI_DATA3_OR_PWM_D_OR}
-
-
-
 # Add READ_ADDR_OFFSET instance
 sd_instantiate_macro -sd_name ${sd_name} -macro_name {AND2} -instance_name {READ_ADDR_OFFSET}
 
@@ -450,7 +427,7 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:GPIO_2_M2F_18" "P8_P
 sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:GPIO_2_M2F_19" "P8_PIN6" }
 
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P8_PIN7} -value {GND}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P8_PIN8} -value {GND}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PWM:PWM" "P8_PIN8" }
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P8_PIN9} -value {GND}
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P8_PIN10} -value {GND}
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P8_PIN11} -value {GND}
@@ -474,14 +451,6 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:I2C_0_SCL_OE_M2F" "I
 sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:I2C_0_SDA_OE_M2F" "I2C0_SDA_BIBUF:E" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:MSS_RESET_N_M2F" "CLOCKS_AND_RESETS:EXT_RST_N" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"MSS_PLL_LOCKS:Y" "CLOCKS_AND_RESETS:MSS_PLL_LOCKS" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:QSPI_DATA2_M2F" "QSPI_DATA2_BIBUF:D" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:QSPI_DATA2_OE_M2F" "QSPI_DATA2_BIBUF:E" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"QSPI_DATA3_OR_PWM_EN_OR:A" "ICICLE_MSS:QSPI_DATA3_OE_M2F"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"QSPI_DATA3_OR_PWM_EN_OR:B" "PWM:PWM"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"QSPI_DATA3_OR_PWM_EN_OR:Y" "QSPI_DATA3_OR_PWM_BIBUF:E" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"QSPI_DATA3_OR_PWM_D_OR:A" "ICICLE_MSS:QSPI_DATA3_M2F"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"QSPI_DATA3_OR_PWM_D_OR:B" "PWM:PWM"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"QSPI_DATA3_OR_PWM_D_OR:Y" "QSPI_DATA3_OR_PWM_BIBUF:D" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"ODT" "ICICLE_MSS:ODT" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"WRITE_ADDR_OFFSET:B" "WRITE_VALIDS:Y" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE_INITIATOR:MASTER0_ARREADY" "PCIE:PCIESS_AXI_1_M_ARREADY" }
@@ -514,14 +483,6 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE:PCIESS_AXI_1_M_BREADY" "PC
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE:PCIESS_AXI_1_M_RREADY" "PCIE_INITIATOR:MASTER0_RREADY" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE:PCIESS_AXI_1_M_WLAST" "PCIE_INITIATOR:MASTER0_WLAST" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE:PCIESS_AXI_1_M_WVALID" "WRITE_VALIDS:B" "PCIE_INITIATOR:MASTER0_WVALID" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:QSPI_CLK" "QSPI_CLK" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:QSPI_SS0" "QSPI_CS" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:QSPI_DATA0" "QSPI_DATA0" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:QSPI_DATA1" "QSPI_DATA1" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"QSPI_DATA2_BIBUF:PAD" "QSPI_DATA2" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:QSPI_DATA2_F2M" "QSPI_DATA2_BIBUF:Y" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"QSPI_DATA3_OR_PWM_BIBUF:PAD" "QSPI_DATA3_OR_PWM" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:QSPI_DATA3_F2M" "QSPI_DATA3_OR_PWM_BIBUF:Y" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"REF_CLK_PAD_N" "CLOCKS_AND_RESETS:REF_CLK_PAD_N" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"REF_CLK_PAD_P" "CLOCKS_AND_RESETS:REF_CLK_PAD_P" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"REFCLK" "ICICLE_MSS:REFCLK" }
