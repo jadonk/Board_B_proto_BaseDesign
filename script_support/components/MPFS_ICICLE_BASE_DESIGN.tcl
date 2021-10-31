@@ -25,6 +25,12 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {PHY_RSTn} -port_direction 
 
 sd_create_scalar_port -sd_name ${sd_name} -port_name {MMUART_0_TXD_M2F} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {MMUART_0_RXD_F2M} -port_direction {IN}
+
+sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_UART_TXD} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_UART_RXD} -port_direction {IN}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_UART_RTS} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_UART_CTS} -port_direction {IN}
+
 sd_create_scalar_port -sd_name ${sd_name} -port_name {RESET_N} -port_direction {OUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {ODT} -port_direction {OUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {CKE} -port_direction {OUT} -port_is_pad {1}
@@ -437,7 +443,18 @@ sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P8_PIN14} -value {GN
 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:MMUART_0_RXD" "MMUART_0_RXD_F2M" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:MMUART_0_TXD" "MMUART_0_TXD_M2F" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:MMUART_1_TXD_M2F" "ICICLE_MSS:MMUART_1_RXD_F2M" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:MMUART_1_TXD_M2F" "M2_UART_TXD" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:MMUART_1_RTS_M2F" "M2_UART_RTS" }
+
+sd_connect_pins -sd_name ${sd_name} -pin_names {"M2_UART_RXD" "ICICLE_MSS:MMUART_1_RXD_F2M" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"M2_UART_CTS" "ICICLE_MSS:MMUART_1_CTS_F2M" }
+
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {ICICLE_MSS:MMUART_1_DTR_M2F}
+
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {ICICLE_MSS:MMUART_1_DCD_F2M} -value {VCC}
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {ICICLE_MSS:MMUART_1_DSR_F2M} -value {VCC}
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {ICICLE_MSS:MMUART_1_RI_F2M} -value {VCC}
+
 sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:MMUART_2_TXD_M2F" "ICICLE_MSS:MMUART_2_RXD_F2M" }
 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"MSS_PLL_LOCKS:A" "ICICLE_MSS:FIC_0_DLL_LOCK_M2F" }

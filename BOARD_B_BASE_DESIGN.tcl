@@ -140,6 +140,7 @@ import_files \
 	-io_pdc "${constraint_path}/ICICLE.pdc" \
 	-io_pdc "${constraint_path}/ETHERNET_MAC.pdc" \
 	-io_pdc "${constraint_path}/P9.pdc" \
+	-io_pdc "${constraint_path}/M2_UART.pdc" \
 	-io_pdc "${constraint_path}/ICICLE_PCIE.pdc" \
 	-io_pdc "${constraint_path}/ICICLE_USB.pdc" \
 	-io_pdc "${constraint_path}/ICICLE_SDIO.pdc" \
@@ -160,6 +161,7 @@ import_files -convert_EDN_to_HDL 0 -fp_pdc "${constraint_path}/CCC.pdc"
 organize_tool_files \
 	-tool {PLACEROUTE} \
 	-file "${project_dir}/constraint/io/P9.pdc" \
+	-file "${project_dir}/constraint/io/M2_UART.pdc" \
 	-file "${project_dir}/constraint/io/ICICLE_SDIO.pdc" \
 	-file "${project_dir}/constraint/io/ICICLE_USB.pdc" \
 	-file "${project_dir}/constraint/io/ICICLE.pdc" \
