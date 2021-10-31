@@ -4,7 +4,7 @@ set_iobank -bank_name Bank1  \
     -update_iostd true
     
 set_io -port_name I2C0_SCL \
-    -pin_name F12	\
+    -pin_name E13	\
     -fixed true	\
     -io_std LVCMOS33  \
     -DIRECTION INOUT    
