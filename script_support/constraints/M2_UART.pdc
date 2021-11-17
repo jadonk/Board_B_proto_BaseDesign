@@ -19,16 +19,16 @@ set_io -port_name M2_UART_RTS  \
     -DIRECTION OUTPUT
 
 
-set_io -port_name M2_UART_RXD  \
-    -pin_name T13              \
-    -fixed true                \
-    -io_std LVCMOS18           \
-    -DIRECTION INPUT
+#set_io -port_name M2_UART_RXD  \
+#    -pin_name T13              \
+#    -fixed true                \
+#    -io_std LVCMOS18           \
+#    -DIRECTION INPUT
 
 
-set_io -port_name M2_UART_TXD  \
-    -pin_name R12              \
-    -fixed true                \
-    -io_std LVCMOS18           \
-    -DIRECTION OUTPUT
+#set_io -port_name M2_UART_TXD  \
+#    -pin_name R12              \
+#    -fixed true                \
+#    -io_std LVCMOS18           \
+#    -DIRECTION OUTPUT
 

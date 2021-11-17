@@ -25,6 +25,19 @@ set_io -port_name P8_PIN45 -pin_name C20 -fixed true -DIRECTION OUTPUT -io_std L
 set_io -port_name P8_PIN46 -pin_name C19 -fixed true -DIRECTION OUTPUT -io_std LVCMOS33 
 
 
+set_io -port_name M2_UART_RXD  \
+    -pin_name D6              \
+    -fixed true                \
+    -io_std LVCMOS33          \
+    -DIRECTION INPUT
+
+
+set_io -port_name M2_UART_TXD  \
+    -pin_name A7              \
+    -fixed true                \
+    -io_std LVCMOS33          \
+    -DIRECTION OUTPUT
+
 
    
 
