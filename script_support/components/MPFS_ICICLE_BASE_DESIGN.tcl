@@ -134,6 +134,13 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_30} -port_direction {IN
 sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_27} -port_direction {INOUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_25} -port_direction {INOUT}
 
+sd_create_scalar_port -sd_name ${sd_name} -port_name {ADC_CSn} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {ADC_SCK} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {ADC_MOSI} -port_direction {INOUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {ADC_MISO} -port_direction {INOUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {ADC_IRQn} -port_direction {IN}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {ADC_MCLK} -port_direction {INOUT}
+
 
 sd_invert_pins -sd_name ${sd_name} -pin_names {USB_ULPI_RESET}
 #sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {SDIO_SW_EN_N} -value {GND}
@@ -723,6 +730,20 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE_DEFAULT_GPIOS:GPIO_15_PAD"
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE_DEFAULT_GPIOS:GPIO_16_PAD" "P9_30"}
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE_DEFAULT_GPIOS:GPIO_17_PAD" "P9_27"}
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE_DEFAULT_GPIOS:GPIO_18_PAD" "P9_25"}
+
+# TODO: Connect ADC_MCLK_BIBUF_0:D to a 4.915 MHz clock.
+sd_instantiate_macro -sd_name {MPFS_ICICLE_KIT_BASE_DESIGN} -macro_name {BIBUF} -instance_name {ADC_MCLK_BIBUF_0}
+sd_mark_pins_unused -sd_name {MPFS_ICICLE_KIT_BASE_DESIGN} -pin_names {ADC_MCLK_BIBUF_0:Y} 
+sd_connect_pins_to_constant -sd_name {MPFS_ICICLE_KIT_BASE_DESIGN} -pin_names {ADC_MCLK_BIBUF_0:D} -value {VCC} 
+
+sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:QSPI_SS0" "ADC_CSn"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:QSPI_CLK" "ADC_SCK"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:QSPI_DATA0" "ADC_MOSI"}
+sd_connect_pins -sd_name {MPFS_ICICLE_KIT_BASE_DESIGN} -pin_names {"ADC_MISO" "ICICLE_MSS:QSPI_DATA1"}
+sd_connect_pins -sd_name {MPFS_ICICLE_KIT_BASE_DESIGN} -pin_names {"ADC_IRQn" "ICICLE_MSS:GPIO_1_20_IN"}
+
+sd_connect_pins -sd_name {MPFS_ICICLE_KIT_BASE_DESIGN} -pin_names {"ADC_MCLK" "ADC_MCLK_BIBUF_0:PAD"} 
+sd_connect_pins -sd_name {MPFS_ICICLE_KIT_BASE_DESIGN} -pin_names {"ADC_MCLK_BIBUF_0:E" "sdio_register_0:SDIO_control"}
 
 
 # Mark pins unused

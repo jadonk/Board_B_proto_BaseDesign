@@ -24,6 +24,12 @@ set_io -port_name P8_PIN44 -pin_name B20 -fixed true -DIRECTION OUTPUT -io_std L
 set_io -port_name P8_PIN45 -pin_name C20 -fixed true -DIRECTION OUTPUT -io_std LVCMOS33 
 set_io -port_name P8_PIN46 -pin_name C19 -fixed true -DIRECTION OUTPUT -io_std LVCMOS33 
 
+set_io -port_name ADC_CSn -pin_name E4 -fixed true -DIRECTION OUTPUT -io_std LVCMOS33
+set_io -port_name ADC_SCK -pin_name E5 -fixed true -DIRECTION OUTPUT -io_std LVCMOS33
+set_io -port_name ADC_MOSI -pin_name B2 -fixed true -DIRECTION OUTPUT -io_std LVCMOS33
+set_io -port_name ADC_MISO -pin_name A2 -fixed true -DIRECTION INTPUT -io_std LVCMOS33
+set_io -port_name ADC_IRQn -pin_name B3 -fixed true -DIRECTION INTPUT -io_std LVCMOS33
+set_io -port_name ADC_MCLK -pin_name E19 -fixed true -DIRECTION INOUT -io_std LVCMOS33
 
 set_io -port_name M2_UART_RXD  \
     -pin_name D6              \
