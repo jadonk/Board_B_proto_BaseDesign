@@ -135,6 +135,167 @@ The following MSS peripherals are enabled:
 | MSS_GPIO_2_26 \| SW2  	| MSS_GPIO_2_INT[30] 	|
 | MSS_GPIO_2_27 \| SW3  	| MSS_GPIO_2_INT[31] 	|
 
+## Headers
+
+### P9
+
+| Header Pin | FPGA Pin | Usage        |
+|------------|----------|--------------|
+|      1     |    n/a   | DGND         |
+|      2     |    n/a   | DGND         |
+|      3     |    n/a   | VDD_3V3      |
+|      4     |    n/a   | VDD_3V3      |
+|      5     |    n/a   | VDD_5V       |
+|      6     |    n/a   | VDD_5V       |
+|      7     |    n/a   | SYS_5V       |
+|      8     |    n/a   | SYS_5V       |
+|      9     |    n/a   | PWR_BUT      | -> TODO
+|     10     |    n/a   | SYSRESETn    | -> TODO
+|     11     |          |              |
+|     12     |     C5   | GPIO         |
+|     13     |          |              |
+|     14     |          |              |
+|     15     |     A5   | GPIO         |
+|     16     |          |              |
+|     17     |          |              |
+|     18     |          |              |
+|     19     |    E13   | MSS I2C0 SCL |
+|     20     |    F13   | MSS I2C0 SDA |
+|     21     |          |              |
+|     22     |          |              |
+|     23     |    H13   | GPIO         |
+|     24     |          |              |
+|     25     |    F15   | GPIO         |
+|     26     |          |              |
+|     27     |    G15   | GPIO         |
+|     28     |          |              |
+|     29     |          |              |
+|     30     |    F16   | GPIO         |
+|     31     |          |              |
+|     32     |    n/a   | VDD_ADC      |
+|     33     |          |              |
+|     34     |    n/a   | GNDA_ADC     |
+|     35     |          |              |
+|     36     |          |              |
+|     37     |          |              |
+|     38     |          |              |
+|     39     |          |              |
+|     40     |   E15    | GPIO         |
+|     41     |          |              |
+|     42     |          |              |
+|     43     |          |              |
+|     44     |          |              |
+|     45     |          |              |
+|     46     |          |              |
+
+### P8
+
+| Header Pin | FPGA Pin | Usage      |
+|------------|----------|------------|
+|      1     |    n/a   | DGND       |
+|      2     |    n/a   | DGND       |
+|      3     |          |            |
+|      4     |          |            |
+|      5     |          |   |
+|      6     |          |   |
+|      7     |     D9   |  GPIO      |
+|      8     |     B8   |  GPIO      |
+|      9     |     A8   |  GPIO      |
+|     10     |     C9   |  GPIO      |
+|     11     |    C10   |  GPIO      |
+|     12     |     B9   |  GPIO      |
+|     13     |          |   |
+|     14     |    F10   |  GPIO      |
+|     15     |    E10   |  GPIO      |
+|     16     |    A11   |  GPIO      |
+|     17     |    A10   |  GPIO      |
+|     18     |    D11   |  GPIO      |
+|     19     |          |   |
+|     20     |          |   |
+|     21     |          |   |
+|     22     |          |   |
+|     23     |          |   |
+|     24     |          |   |
+|     25     |          |   |
+|     26     |    A12   |  GPIO      |
+|     27     |          |   |
+|     28     |          |   |
+|     29     |          |   |
+|     30     |          |   |
+|     31     |          |   |
+|     32     |          |   |
+|     33     |          |   |
+|     34     |          |   |
+|     35     |          |   |
+|     36     |          |   |
+|     37     |          |   |
+|     38     |          |   |
+|     39     |          |   |
+|     40     |          |   |
+|     41     |          |   |
+|     42     |          |   |
+|     43     |          |   |
+|     44     |          |   |
+|     45     |          |   |
+|     46     |          |   |
+
+### J9
+
+| Header Pin | FPGA Pin | Usage      |
+|------------|----------|------------|
+|      1     |          |            |
+|      2     |          |            |
+|      3     |          |            |
+|      4     |          |            |
+|      5     |          |   |
+|      6     |          |   |
+|      7     |          |   |
+|      8     |          |   |
+|      9     |          |   |
+|     10     |          |   |
+|     11     |          |   |
+|     12     |          |   |
+|     13     |          |   |
+|     14     |          |   |
+|     15     |          |   |
+|     16     |          |   |
+|     17     |          |   |
+|     18     |          |   |
+|     19     |          |   |
+|     20     |          |   |
+|     21     |          |   |
+|     22     |          |   |
+|     23     |          |   |
+|     24     |          |   |
+|     25     |          |   |
+|     26     |          |   |
+|     27     |          |   |
+|     28     |          |   |
+|     29     |          |   |
+|     30     |          |   |
+|     31     |          |   |
+|     32     |          |   |
+|     33     |          |   |
+|     34     |          |   |
+|     35     |          |   |
+|     36     |          |   |
+|     37     |          |   |
+|     38     |          |   |
+|     39     |          |   |
+|     40     |          |   |
+|     41     |          |   |
+|     42     |          |   |
+|     43     |          |   |
+|     44     |          |   |
+|     45     |          |   |
+|     46     |          |   |
+|            |          |   |
+|     58     |    B1    | MSS I2C1 SDA |
+|            |          |              |
+|     60     |    C1    | MSS I2C1 SCL |
+
+
+
 ## Programming the FPGA
 
 Once the script has completed the design can be configured further if needed and the Libero SoC design flow can be run by double clicking on a stage in the design flow on the left hand side of Libero. Selecting an option requiring previous steps to be completed will run the full flow, i.e double clicking "Run Program Action" will run any required steps, such as, "Synthesize", "Place and Route", etc and then program the device.

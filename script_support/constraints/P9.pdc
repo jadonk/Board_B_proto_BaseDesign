@@ -1,0 +1,147 @@
+set_iobank -bank_name Bank1  \
+    -vcci 3.30               \
+    -fixed false             \
+    -update_iostd true
+    
+set_io -port_name I2C0_SCL \
+    -pin_name E13	\
+    -fixed true	\
+    -io_std LVCMOS33  \
+    -DIRECTION INOUT    
+    
+set_io -port_name I2C0_SDA	\
+    -pin_name F13	\
+    -fixed true	\
+    -io_std LVCMOS33  \
+    -DIRECTION INOUT
+
+
+set_io -port_name P9_12	\
+    -pin_name C5	\
+    -fixed true	\
+    -io_std LVCMOS33  \
+    -DIRECTION INOUT
+
+
+#set_io -port_name P9_14	\
+#    -pin_name D6	\
+#    -fixed true	\
+#    -io_std LVCMOS33  \
+#    -DIRECTION OUT
+
+set_io -port_name P9_15	\
+    -pin_name A5	\
+    -fixed true	\
+    -io_std LVCMOS33  \
+    -DIRECTION INOUT
+
+
+set_io -port_name P9_23	\
+    -pin_name H13	\
+    -fixed true	\
+    -io_std LVCMOS33  \
+    -DIRECTION INOUT
+
+
+set_io -port_name P9_25	\
+    -pin_name F15	\
+    -fixed true	\
+    -io_std LVCMOS33  \
+    -DIRECTION INOUT
+
+
+set_io -port_name P9_27	\
+    -pin_name G15	\
+    -fixed true	\
+    -io_std LVCMOS33  \
+    -DIRECTION INOUT
+
+
+set_io -port_name P9_30	\
+    -pin_name F16	\
+    -fixed true	\
+    -io_std LVCMOS33  \
+    -DIRECTION INOUT
+
+
+set_io -port_name P9_41	\
+    -pin_name E15	\
+    -fixed true	\
+    -io_std LVCMOS33  \
+    -DIRECTION INOUT
+
+
+set_io -port_name P8_7	\
+    -pin_name D9	\
+    -fixed true	\
+    -io_std LVCMOS33  \
+    -DIRECTION INOUT
+
+set_io -port_name P8_8	\
+    -pin_name B8	\
+    -fixed true	\
+    -io_std LVCMOS33  \
+    -DIRECTION INOUT
+
+set_io -port_name P8_9	\
+    -pin_name A8	\
+    -fixed true	\
+    -io_std LVCMOS33  \
+    -DIRECTION INOUT
+
+set_io -port_name P8_10	\
+    -pin_name C9	\
+    -fixed true	\
+    -io_std LVCMOS33  \
+    -DIRECTION INOUT
+
+set_io -port_name P8_11	\
+    -pin_name C10	\
+    -fixed true	\
+    -io_std LVCMOS33  \
+    -DIRECTION INOUT
+
+set_io -port_name P8_12	\
+    -pin_name B9	\
+    -fixed true	\
+    -io_std LVCMOS33  \
+    -DIRECTION INOUT
+
+
+set_io -port_name P8_14	\
+    -pin_name F10	\
+    -fixed true	\
+    -io_std LVCMOS33  \
+    -DIRECTION INOUT
+
+set_io -port_name P8_15	\
+    -pin_name E10	\
+    -fixed true	\
+    -io_std LVCMOS33  \
+    -DIRECTION INOUT
+
+set_io -port_name P8_16	\
+    -pin_name A11	\
+    -fixed true	\
+    -io_std LVCMOS33  \
+    -DIRECTION INOUT
+
+set_io -port_name P8_17	\
+    -pin_name A10	\
+    -fixed true	\
+    -io_std LVCMOS33  \
+    -DIRECTION INOUT
+
+set_io -port_name P8_18	\
+    -pin_name D11	\
+    -fixed true	\
+    -io_std LVCMOS33  \
+    -DIRECTION INOUT
+
+
+set_io -port_name P8_26	\
+    -pin_name A12	\
+    -fixed true	\
+    -io_std LVCMOS33  \
+    -DIRECTION INOUT
+	
